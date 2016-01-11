@@ -1,0 +1,23 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {margin:0;padding:0;}
+html, body, button, input, select, textarea {font:12px/1.333 "Microsoft Yahei", arial, \5b8b\4f53, sans-serif;/*16÷12≈1.333*/}
+h1, h2, h3, h4, h5, h6, strong, small {font-size:100%;font-weight:normal;}
+em, i {font-style:normal;}
+ul, ol {list-style:none;}
+fieldset, img {border:0;}
+button, input, select, textarea {font-size:100%;outline: none;}
+table {*border-collapse:collapse;border-spacing:0;}
+label {cursor:pointer;vertical-align:middle;outline: none;}
+input {vertical-align:middle;}
+input[type="button"], input[type="submit"], select, button {cursor:pointer;}
+a {color:#393939;text-decoration:none;outline: none;}
+.clearfix:after {content:"\200B";display:block;height:0;clear:both;}
+.clearfix {*zoom:1;}
+/***********reset end********************/
+
+#city-select {margin: 80px;text-align: center;}
+#city-select .box {display: inline-block;width: 97px;height: 23px;line-height: 23px;border: 1px solid #4199D7;position: relative;margin: 0 8px;border-radius: 4px;}
+#city-select .box input {border: 0 none;display: block;width: 100%;height: 100%;box-sizing: border-box;padding: 0 4px;border-radius: 4px;line-height: 23px;}
+#city-select .box ul {position: absolute;width: 100%;max-height: 200px;overflow: auto;border: 1px solid #4199D7;top: 24px;text-align: left;}
+#city-select .box li {padding-left: 3px;cursor: pointer;overflow: hidden;}
+
+
