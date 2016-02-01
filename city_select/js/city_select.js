@@ -377,17 +377,14 @@ const SITE_DATA = {
 };
 
 
-
-
-
-
 var Options = React.createClass({
   onClick: function(e){
     this.props.topHandle(this.props.name, this.props.level);
   },
   render: function(){
+    var pinyin = pinyinFn(this.props.name);
     return (
-      <li refs='myOption' onClick={this.onClick}>{this.props.name}</li>
+      <li refs='myOption' data-pinyin={pinyin} onClick={this.onClick}>{this.props.name}</li>
     );
   }
 });
@@ -404,18 +401,18 @@ var Box = React.createClass({
   },
   getInitialState: function(){
     return {
-      inputFocus: false
+      ulShow: false
     };
   },
   inputOnFocus: function(){
     this.setState({
-      inputFocus: true
+      ulShow: true
     });
   },
   inputOnBlur: function(){
     setTimeout(() => {
       this.setState({
-        inputFocus: false
+        ulShow: false
       });
     }, 300);
   },
@@ -439,14 +436,14 @@ var Box = React.createClass({
         <input
           type='text'
           ref='myInput'
-          readOnly={true}
+          /*readOnly={true}*/
           onFocus={this.inputOnFocus}
           onBlur={this.inputOnBlur}
           onChange={this.inputOnChange}
           value={value}/*第一册的时候用了的defaultValue死活也不更新啊*/
           placeholder={this.props.placeholder} />
         <ul style={{
-          display: this.state.inputFocus ? 'block' : 'none'
+          display: this.state.ulShow ? 'block' : 'none'
         }}>
           {rows}
         </ul>
@@ -524,7 +521,7 @@ var Wrap = React.createClass({
 });
 
 
-window.ddd = ReactDOM.render(
+ReactDOM.render(
   <Wrap default={DEF_SITE_DATA} siteData={SITE_DATA} />,
   document.querySelector('#city-select')
 );
@@ -535,8 +532,6 @@ window.ddd = ReactDOM.render(
 /*
 
 有时候就是需要onchange
-事件的冒泡处理的不好
-
-Box 直传一个属性 每次改变 在向下传递
+React事件的冒泡处理的不好
 
 */
